@@ -1,10 +1,10 @@
-package com.miapirest.ApiRestPortfolio;
+package com.miportfolio.ArgentinaPrograma;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiRestPortfolioApplicationTests {
+class ArgentinaProgramaApplicationTests {
 
 	@Test
 	void contextLoads() {

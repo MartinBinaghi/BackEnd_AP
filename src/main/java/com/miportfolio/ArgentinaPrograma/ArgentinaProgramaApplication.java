@@ -1,13 +1,13 @@
-package com.miapirest.ApiRestPortfolio;
+package com.miportfolio.ArgentinaPrograma;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiRestPortfolioApplication {
+public class ArgentinaProgramaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiRestPortfolioApplication.class, args);
+		SpringApplication.run(ArgentinaProgramaApplication.class, args);
 	}
 
 }
