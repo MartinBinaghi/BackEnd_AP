@@ -1,5 +1,8 @@
 package com.miportfolio.ArgentinaPrograma.Security.Controller;
 
+import com.miportfolio.ArgentinaPrograma.Security.Dto.JwtDto;
+import com.miportfolio.ArgentinaPrograma.Security.Dto.LoginUsuario;
+import com.miportfolio.ArgentinaPrograma.Security.Dto.NuevoUsuario;
 import com.miportfolio.ArgentinaPrograma.Security.Entity.Rol;
 import com.miportfolio.ArgentinaPrograma.Security.Entity.Usuario;
 import com.miportfolio.ArgentinaPrograma.Security.Enums.RolNombre;
@@ -47,11 +50,11 @@ public class AuthController {
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"), HttpStatus.BAD_REQUEST);
         }
 
-        if (usuarioService.existsByNombreUsuario(nombreUsuario.getNombreusuario())) {
+        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
             return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
         }
 
-        if (usuarioService.existsByEmail(nombreUsuario.getEmail())) {
+        if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
             return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
         }
 
@@ -87,6 +90,6 @@ public class AuthController {
 
         JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
 
-        return new ResponseEntity(jwtDto, HttpStatus.OR);
+        return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
 }
