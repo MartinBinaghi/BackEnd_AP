@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/personas/traer")
     public List <Persona> getPersona() {
         return ipersonaService.getPersona();
