@@ -21,33 +21,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/personas/traer")
-    public List <Persona> getPersona() {
+    @GetMapping("personas/traer")
+    public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
     
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
-    public String createPersona (@RequestBody Persona persona) {
-        ipersonaService.savePersona (persona);
+    public String createPersona(@RequestBody Persona persona){
+        ipersonaService.savePersona(persona);
         return "La persona fue creada correctamente";
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @DeleteMapping ("/personas/borrar/{id}")
-    public String deletePersona (@PathVariable Long id) {
-        ipersonaService.deletePersona (id);
+    @DeleteMapping("/personas/borrar/{id}")
+    public String deletePersona(@PathVariable Long id){
+        ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
     }
     
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping ("/personas/editar/{id}")
-    public Persona editPersona (@PathVariable Long id,
-                                @RequestParam ("nombre ") String nuevoNombre,
-                                @RequestParam ("apellido ") String nuevoApellido,
-                                @RequestParam ("Img") String nuevoImg){
-
+    @PutMapping("/personas/editar/{id}")
+    public Persona editPersona(@PathVariable Long id,
+                               @RequestParam("nombre") String nuevoNombre,
+                               @RequestParam("apellido") String nuevoApellido,
+                               @RequestParam("Img") String nuevoImg){
         Persona persona = ipersonaService.findPersona(id);
 
         persona.setNombre(nuevoNombre);
@@ -58,7 +56,7 @@ public class PersonaController {
         return persona;
     }
     
-    @GetMapping("/personas/traer/perfil")
+    @GetMapping("personas/traer/perfil")
     public Persona findPersona(){
         return ipersonaService.findPersona((long)1);
     }

@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-public class UsuarioPrincipal implements UserDetails {
+public class UsuarioPrincipal implements UserDetails{
 
     private String nombre;
     private String nombreUsuario;
@@ -15,11 +15,8 @@ public class UsuarioPrincipal implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UsuarioPrincipal() {
-    }
 
-    public UsuarioPrincipal(String nombre, String nombreUsuario, String email,
-             String password, Collection<? extends GrantedAuthority> authorities) {
+    public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -31,8 +28,8 @@ public class UsuarioPrincipal implements UserDetails {
         List<GrantedAuthority> authorities = usuario.getRoles().stream()
                 .map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors
                 .toList());
-        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(),
-                 usuario.getEmail(), usuario.getPassword(), authorities);
+        return new UsuarioPrincipal(usuario.getNombre(), usuario.getNombreUsuario(), usuario.getEmail(),
+                 usuario.getPassword(), authorities);
     }
 
     @Override
@@ -45,17 +42,17 @@ public class UsuarioPrincipal implements UserDetails {
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return nombreUsuario;
-    }
-
     public String getNombre() {
         return nombre;
     }
 
     public String getEmail() {
         return email;
+    }
+    
+    @Override
+    public String getUsername() {
+        return nombreUsuario;
     }
 
     @Override
