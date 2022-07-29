@@ -33,7 +33,7 @@ public class Educacion {
         this.id = id;
     }
 
-    public boolean isEducacion__open() {
+    public boolean getEducacion__open() {
         return educacion__open;
     }
 
