@@ -9,15 +9,17 @@ public class dtoEducacion {
     private String subtituloEd;
     @NotBlank
     private String descripcionEd;
+    private String imgEd;
     private boolean educacion__open;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String tituloEd, String subtituloEd, String descripcionEd, boolean educacion__open) {
+    public dtoEducacion(String tituloEd, String subtituloEd, String descripcionEd, String imgEd, boolean educacion__open) {
         this.tituloEd = tituloEd;
         this.subtituloEd = subtituloEd;
         this.descripcionEd = descripcionEd;
+        this.imgEd = imgEd;
         this.educacion__open = educacion__open;
     }
 
@@ -43,6 +45,14 @@ public class dtoEducacion {
 
     public void setDescripcionEd(String descripcionEd) {
         this.descripcionEd = descripcionEd;
+    }
+    
+    public String getImgEd() {
+        return imgEd;
+    }
+
+    public void setImgEd(String imgEd) {
+        this.imgEd = imgEd;
     }
 
     public boolean getEducacion__open() {

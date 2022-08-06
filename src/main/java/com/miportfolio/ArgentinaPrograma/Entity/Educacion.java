@@ -14,14 +14,16 @@ public class Educacion {
     private String tituloEd;
     private String subtituloEd;
     private String descripcionEd;
+    private String imgEd;
     
     public Educacion() {
     }
 
-    public Educacion(String tituloEd, String subtituloEd, String descripcionEd, boolean educacion__open) {
+    public Educacion(String tituloEd, String subtituloEd, String descripcionEd, String imgEd, boolean educacion__open) {
         this.tituloEd = tituloEd;
         this.subtituloEd = subtituloEd;
         this.descripcionEd = descripcionEd;
+        this.imgEd = imgEd;
         this.educacion__open = educacion__open;
     }
 
@@ -65,9 +67,11 @@ public class Educacion {
         this.descripcionEd = descripcionEd;
     }
     
-    
-    
-    
-    
-    
+    public String getImgEd() {
+        return imgEd;
+    }
+
+    public void setImgEd(String imgEd) {
+        this.imgEd = imgEd;
+    }
 }
