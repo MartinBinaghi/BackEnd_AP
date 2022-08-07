@@ -14,14 +14,16 @@ public class Experiencia {
     private String nombreE;
     private String subtituloE;
     private String descripcionE;
+    private String imgE;
 
     public Experiencia() {
     }
 
-    public Experiencia(String nombreE, String subtituloE, String descripcionE, boolean experiencia__open) {
+    public Experiencia(String nombreE, String subtituloE, String descripcionE, String imgE, boolean experiencia__open) {
         this.nombreE = nombreE;
         this.subtituloE = subtituloE;
         this.descripcionE = descripcionE;
+        this.imgE = imgE;
         this.experiencia__open = experiencia__open;
     }
     
@@ -64,6 +66,14 @@ public class Experiencia {
 
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
+    }
+    
+    public String getImgE() {
+        return imgE;
+    }
+
+    public void setImgE(String imgE) {
+        this.imgE = imgE;
     }
 
 }
