@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Experiencia {
@@ -11,8 +13,16 @@ public class Experiencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private boolean experiencia__open = true;
+    
+    @NotNull(message= "Debe introducir un cargo")
+    @Size(min = 1, max = 50, message = "Cargo excede los 50 caracteres")
     private String nombreE;
+    
+    @NotNull(message= "Debe introducir una empresa")
+    @Size(min = 1, max = 50, message = "Empresa excede los 50 caracteres")
     private String subtituloE;
+    
+    @Size(min = 0, max = 255, message = "Descripcion excede los 255 caracteres")
     private String descripcionE;
     private String imgE;
 

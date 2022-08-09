@@ -4,13 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Habilidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @NotNull(message= "Debe introducir un porcentaje")
     private int porcentajeS;
+    
+    @NotNull(message= "Debe introducir una habilidad")
+    @Size(min = 1, max = 25, message = "Habilidad excede los 25 caracteres")
     private String tituloS;
     private String imgS;
 
