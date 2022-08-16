@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/aboutme")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://personalportfolioap.web.app")
 public class CAboutMe {
     @Autowired
     SAboutMe sAboutMe;
